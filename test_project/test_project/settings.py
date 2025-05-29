@@ -49,7 +49,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'         #creating a temporary storage space 
+                                                                  # for that user's information
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'localhost',
+        'TIMEOUT': 3600
+    }
+}
 ROOT_URLCONF = 'test_project.urls'
 
 TEMPLATES = [
